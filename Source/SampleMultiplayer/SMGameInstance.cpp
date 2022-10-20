@@ -5,6 +5,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "Engine/World.h"
 
+#include "eos_auth.h"
+
 #include "OnlineSessionSettings.h"
 #include "OnlineSubsystem.h"
 
@@ -28,7 +30,7 @@ void USMGameInstance::Init()
 		UE_LOG(LogTemp, Warning, TEXT("No Session Name found. Setting to default name."));
 	}
 	InitSessioning();
-	if (IsDedicatedServerInstance())
+	/*if (IsDedicatedServerInstance())
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Dedicated Server Instance is running!"));
 		if (MySessionsDataStruct.SessionName.IsEmpty())
@@ -53,7 +55,7 @@ void USMGameInstance::Init()
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Dedicated Server Instance is not running!"));
-	}
+	}*/
 }
 
 void USMGameInstance::InitSessioning()
@@ -62,14 +64,20 @@ void USMGameInstance::InitSessioning()
 	if (MyOnlineSubsystem != nullptr)
 	{
 		MyOnlineSessionPtr = MyOnlineSubsystem->GetSessionInterface();
-		MyOnlineIdentityPtr = MyOnlineSubsystem->GetIdentityInterface();
+		if (IsRunningClientOnly())
+		{
+			MyOnlineIdentityPtr = MyOnlineSubsystem->GetIdentityInterface();
+		}
 		if (MyOnlineSessionPtr.IsValid() && MyOnlineIdentityPtr.IsValid())
 		{
 			MyOnlineSessionPtr->OnCreateSessionCompleteDelegates.AddUObject(this, &USMGameInstance::OnCreateSessionComplete);
 			MyOnlineSessionPtr->OnDestroySessionCompleteDelegates.AddUObject(this, &USMGameInstance::OnDestroySessionComplete);
 			MyOnlineSessionPtr->OnFindSessionsCompleteDelegates.AddUObject(this, &USMGameInstance::OnFindSessionComplete);
 			MyOnlineSessionPtr->OnJoinSessionCompleteDelegates.AddUObject(this, &USMGameInstance::OnJoinSessionComplete);
-			MyOnlineIdentityPtr->OnLoginCompleteDelegates->AddUObject(this, &USMGameInstance::OnNewLoginComplete);
+			if (IsRunningClientOnly())
+			{
+				MyOnlineIdentityPtr->OnLoginCompleteDelegates->AddUObject(this, &USMGameInstance::OnNewLoginComplete);
+			}
 			if (IsRunningClientOnly())
 			{
 				MyOnlineSessionSearch = MakeShareable(new FOnlineSessionSearch());
@@ -205,7 +213,7 @@ void USMGameInstance::OnFindSessionComplete(bool bWasSuccessful)
 			{
 				UE_LOG(LogTemp, Warning, TEXT("Found Session ID: %s"), *MyOnlineSessionSearchResult.GetSessionIdStr());
 				FString MyName;
-				if (MyOnlineSessionSearchResult.Session.SessionSettings.Get(TEXT("EOSLobbySession"), MyName))
+				if (MyOnlineSessionSearchResult.Session.SessionSettings.Get(SEARCH_KEYWORDS, MyName))
 				{
 					UE_LOG(LogTemp, Warning, TEXT("Session Name: %s"), *MyName);
 				}
