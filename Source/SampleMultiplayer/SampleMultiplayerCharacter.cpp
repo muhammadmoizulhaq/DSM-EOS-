@@ -98,17 +98,17 @@ void ASampleMultiplayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimePro
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
-	DOREPLIFETIME(ASampleMultiplayerCharacter, Username);
+	//DOREPLIFETIME(ASampleMultiplayerCharacter, Username);
 }
 
-void ASampleMultiplayerCharacter::OnRep_Username()
-{
-	SetUsername();
-}
-
-void ASampleMultiplayerCharacter::SetUsername_Implementation()
-{
-}
+//void ASampleMultiplayerCharacter::OnRep_Username()
+//{
+//	SetUsername();
+//}
+//
+//void ASampleMultiplayerCharacter::SetUsername_Implementation()
+//{
+//}
 
 void ASampleMultiplayerCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
 {

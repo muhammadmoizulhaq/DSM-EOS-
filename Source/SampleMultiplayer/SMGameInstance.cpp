@@ -30,7 +30,7 @@ void USMGameInstance::Init()
 		UE_LOG(LogTemp, Warning, TEXT("No Session Name found. Setting to default name."));
 	}
 	InitSessioning();
-	/*if (IsDedicatedServerInstance())
+	if (IsDedicatedServerInstance())
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Dedicated Server Instance is running!"));
 		if (MySessionsDataStruct.SessionName.IsEmpty())
@@ -55,7 +55,7 @@ void USMGameInstance::Init()
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Dedicated Server Instance is not running!"));
-	}*/
+	}
 }
 
 void USMGameInstance::InitSessioning()

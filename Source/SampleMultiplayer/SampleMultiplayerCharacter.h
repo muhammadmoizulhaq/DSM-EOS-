@@ -87,13 +87,13 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 	/** Creating a RepNotify Username Variable. */
-	UPROPERTY(ReplicatedUsing = OnRep_Username, BlueprintReadWrite, Category = "DSMS|Replication")
-	FString Username;
-	/** Callback function when the property is updated over the network. */
-	UFUNCTION()
-	void OnRep_Username();
-	/** the implementing native event to call from blueprint while the repnotify (Username) callback function fired. */
-	UFUNCTION(BlueprintNativeEvent, Category = "DSMS|Replication")
-	void SetUsername();
+	//UPROPERTY(ReplicatedUsing = OnRep_Username, BlueprintReadWrite, Category = "DSMS|Replication")
+	//FString Username;
+	///** Callback function when the property is updated over the network. */
+	//UFUNCTION()
+	//void OnRep_Username();
+	///** the implementing native event to call from blueprint while the repnotify (Username) callback function fired. */
+	//UFUNCTION(BlueprintNativeEvent, Category = "DSMS|Replication")
+	//void SetUsername();
 
 };
