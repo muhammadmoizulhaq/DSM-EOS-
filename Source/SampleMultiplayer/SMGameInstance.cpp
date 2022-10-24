@@ -153,8 +153,8 @@ void USMGameInstance::CreateNewSession(FName InSessionName)
 		MyOnlineSessionSetting.bIsDedicated = true;
 		MyOnlineSessionSetting.bIsLANMatch = false;
 		MyOnlineSessionSetting.bShouldAdvertise = true;
-		MyOnlineSessionSetting.bUseLobbiesIfAvailable = true;
-		MyOnlineSessionSetting.bUseLobbiesVoiceChatIfAvailable = true;
+		//MyOnlineSessionSetting.bUseLobbiesIfAvailable = true;
+		//MyOnlineSessionSetting.bUseLobbiesVoiceChatIfAvailable = true;
 		MyOnlineSessionSetting.bUsesPresence = true;
 		MyOnlineSessionSetting.bUsesStats = true;
 		MyOnlineSessionSetting.NumPrivateConnections = 5;
