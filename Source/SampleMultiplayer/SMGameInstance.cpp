@@ -7,6 +7,8 @@
 
 #include "eos_auth.h"
 
+#include "OnlineSubsystemEOS.h"
+//#include "OnlineSubsystemEOS.cpp"
 #include "OnlineSessionSettings.h"
 #include "OnlineSubsystem.h"
 
@@ -32,6 +34,7 @@ void USMGameInstance::Init()
 	InitSessioning();
 	if (IsDedicatedServerInstance())
 	{
+		NewLogin(TEXT("moiz"));
 		UE_LOG(LogTemp, Warning, TEXT("Dedicated Server Instance is running!"));
 		if (MySessionsDataStruct.SessionName.IsEmpty())
 		{
@@ -60,7 +63,8 @@ void USMGameInstance::Init()
 
 void USMGameInstance::InitSessioning()
 {
-	IOnlineSubsystem* MyOnlineSubsystem = IOnlineSubsystem::Get();
+	//IOnlineSubsystem* MyOnlineSubsystem = IOnlineSubsystem::Get();
+	const IOnlineSubsystem* MyOnlineSubsystem = FOnlineSubsystemEOS::Get(EOS_SUBSYSTEM);
 	if (MyOnlineSubsystem != nullptr)
 	{
 		MyOnlineSessionPtr = MyOnlineSubsystem->GetSessionInterface();
@@ -118,10 +122,10 @@ void USMGameInstance::NewLogin(FString InToken)
 	{
 		FOnlineAccountCredentials MyOnlineAccountCredentials;
 		//MyOnlineAccountCredentials.Id = InUserID;
-		MyOnlineAccountCredentials.Id = FString();
-		//MyOnlineAccountCredentials.Token = InUserSecret;
-		MyOnlineAccountCredentials.Token = FString();
-		MyOnlineAccountCredentials.Type = FString("accountportal");
+		MyOnlineAccountCredentials.Id = FString("127.0.0.1:7777");
+		MyOnlineAccountCredentials.Token = InToken;
+		//MyOnlineAccountCredentials.Token = FString();
+		MyOnlineAccountCredentials.Type = FString("developer");
 
 		MyOnlineIdentityPtr->Login(0, MyOnlineAccountCredentials);
 	}
@@ -153,8 +157,8 @@ void USMGameInstance::CreateNewSession(FName InSessionName)
 		MyOnlineSessionSetting.bIsDedicated = true;
 		MyOnlineSessionSetting.bIsLANMatch = false;
 		MyOnlineSessionSetting.bShouldAdvertise = true;
-		//MyOnlineSessionSetting.bUseLobbiesIfAvailable = true;
-		//MyOnlineSessionSetting.bUseLobbiesVoiceChatIfAvailable = true;
+		MyOnlineSessionSetting.bUseLobbiesIfAvailable = true;
+		MyOnlineSessionSetting.bUseLobbiesVoiceChatIfAvailable = true;
 		MyOnlineSessionSetting.bUsesPresence = true;
 		MyOnlineSessionSetting.bUsesStats = true;
 		MyOnlineSessionSetting.NumPrivateConnections = 5;

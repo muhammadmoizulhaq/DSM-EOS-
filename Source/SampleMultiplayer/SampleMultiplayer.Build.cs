@@ -13,10 +13,10 @@ public class SampleMultiplayer : ModuleRules
 		//PrivateDefinitions.Add("WITH_EOS_SDK=true");
 		PrivateDefinitions.Add("WITH_EOS_RTC=true");
 
-        PublicIncludePaths.AddRange(new string[]
+        /*PublicIncludePaths.AddRange(new string[]
         {
             "SampleMultiplayer/EOS/SDK/Include",
-        });
+        });*/
 
         //PublicIncludePaths.Add(Path.Combine(EngineDirectory, "Plugins/Online/OnlineSubsystemEOS/Source/OnlineSubsystemEOS/Private/"));
 
