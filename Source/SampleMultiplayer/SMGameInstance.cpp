@@ -5,8 +5,6 @@
 #include "Kismet/GameplayStatics.h"
 #include "Engine/World.h"
 
-#include "eos_auth.h"
-
 #include "OnlineSubsystemEOS.h"
 //#include "OnlineSubsystemEOS.cpp"
 #include "OnlineSessionSettings.h"
@@ -20,7 +18,7 @@ void USMGameInstance::Init()
 {
 	Super::Init();
 
-	FString MySessionName = "";
+	/*FString MySessionName = "";
 	if (FParse::Value(FCommandLine::Get(), TEXT("EOSLobbySession"), MySessionName))
 	{
 		MySessionName = MySessionName.Replace(TEXT("="), TEXT(""));
@@ -58,7 +56,7 @@ void USMGameInstance::Init()
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Dedicated Server Instance is not running!"));
-	}
+	}*/
 }
 
 void USMGameInstance::InitSessioning()

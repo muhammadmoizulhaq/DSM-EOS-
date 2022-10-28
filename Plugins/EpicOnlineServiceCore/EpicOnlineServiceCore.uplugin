@@ -4,21 +4,24 @@
 	"VersionName": "1.0",
 	"FriendlyName": "EpicOnlineServiceCore",
 	"Description": "",
-	"Category": "Other",
+	"Category": "Online",
 	"CreatedBy": "Muhammad Moiz ul haq",
 	"CreatedByURL": "https://muhammadmoizulhaq.github.io/DSMS-EOS-/",
 	"DocsURL": "",
 	"MarketplaceURL": "",
 	"SupportURL": "",
-	"CanContainContent": true,
+	"CanContainContent": false,
 	"IsBetaVersion": true,
-	"IsExperimentalVersion": false,
+	"IsExperimentalVersion": true,
 	"Installed": false,
 	"Modules": [
 		{
 			"Name": "EpicOnlineServiceCore",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [
+				"Win64"
+			]
 		}
 	]
 }

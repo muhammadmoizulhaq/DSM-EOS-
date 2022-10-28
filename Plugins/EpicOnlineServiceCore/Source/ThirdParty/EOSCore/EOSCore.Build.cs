@@ -12,13 +12,11 @@ public class EOSCore : ModuleRules
 		if (Target.Platform == UnrealTargetPlatform.Win64)
 		{
 			// Add the import library
-			PublicAdditionalLibraries.Add(Path.Combine(ModuleDirectory, "x64", "Release", "EOSSDK-Win64-Shipping.lib"));
-
+			PublicAdditionalLibraries.Add(Path.Combine(ModuleDirectory, "Lib", "EOSSDK-Win64-Shipping.lib"));
 			// Delay-load the DLL, so we can load it from the right place first
 			PublicDelayLoadDLLs.Add("EOSSDK-Win64-Shipping.dll");
-
 			// Ensure that the DLL is staged along with the executable
-			RuntimeDependencies.Add("$(PluginDir)/Binaries/ThirdParty/EpicOnlineServiceCoreLibrary/Win64/EOSSDK-Win64-Shipping.dll");
+			RuntimeDependencies.Add("$(PluginDir)/Binaries/Win64/EOSSDK-Win64-Shipping.dll");
         }
         else if (Target.Platform == UnrealTargetPlatform.Mac)
         {
