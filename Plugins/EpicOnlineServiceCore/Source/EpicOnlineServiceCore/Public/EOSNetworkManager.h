@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+
+#include "EOSCore/Include/eos_sdk.h"
+
 #include "EOSNetworkManager.generated.h"
 
 UCLASS()
@@ -11,6 +14,9 @@ class EPICONLINESERVICECORE_API UEOSNetworkManager : public UObject
 {
 	GENERATED_BODY()
 public:
+	/**
+	* 
+	*/
 	UFUNCTION(BlueprintCallable, Category = "Epic Online Services Core | Init")
 	static const UEOSNetworkManager* IntEOSNetworkManager();
 };
