@@ -72,3 +72,9 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+# Ignore those files
+!Plugins/*/Source/ThirdParty/EOSCore/Bin/*
+!Plugins/*/Source/ThirdParty/EOSCore/Bin/x64/*
+!Plugins/*/Source/ThirdParty/EOSCore/Bin/x86/*
+!Plugins/*/Source/ThirdParty/EOSCore/Lib/*
