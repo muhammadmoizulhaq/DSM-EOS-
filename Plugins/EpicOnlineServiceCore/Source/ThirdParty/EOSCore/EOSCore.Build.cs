@@ -30,5 +30,10 @@ public class EOSCore : ModuleRules
 			PublicDelayLoadDLLs.Add(LinusSoPath);
 			RuntimeDependencies.Add(LinusSoPath);
 		}
+		/*PulicIncludePaths.AddRange(new string[]
+		{
+			"Include",
+			"Include/Windows",
+		});*/
 	}
 }

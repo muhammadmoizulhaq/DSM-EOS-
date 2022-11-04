@@ -19,6 +19,7 @@
 
 // [Header.third.party.incl] Third Party Include file here
 #include "EOSCore/Include/eos_sdk.h"
+//#include "EOSCore/Include/eos_types.h"
 
 // [basic.rule] FOLLOW UE4 coding style! 
 //  https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard/
@@ -37,6 +38,7 @@
 
 // [header.engine.incl] list all the Engine dependencies with angle brackets includes
 #include <UObject/NoExportTypes.h>
+#include <EpicOnlineServicesSettings.h>
 
 // [header.incl.order]
 //  Generally speaking the include order of files should be:
@@ -87,6 +89,7 @@ class EPICONLINESERVICECORE_API UEOSNetworkManager : public UObject
 	//
 	//  Generally, for storing pointers to classes you do own, use UPROPERTY().
 public:
+	void InitEOSPlatform();
 	/**
 	* Initialize Network Manager
 	* It sould be called before using other functionalities
@@ -95,4 +98,7 @@ public:
 	*/
 	UFUNCTION(BlueprintCallable, Category = "Epic Online Services Core | Init")
 	/*static const*/UEOSNetworkManager* IntEOSNetworkManager();
+
+	/** Platform hanlde */
+	static EOS_HPlatform PlatformHandle;
 };

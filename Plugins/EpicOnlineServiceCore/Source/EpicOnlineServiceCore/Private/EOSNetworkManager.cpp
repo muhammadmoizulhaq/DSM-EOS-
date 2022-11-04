@@ -29,6 +29,14 @@
 // 4) Shared or Feature files
 // 5) Local files
 
+void UEOSNetworkManager::InitEOSPlatform()
+{
+	// Create platform instance
+	EOS_Platform_Options PlatformOptions = {};
+	PlatformOptions.ApiVersion = EOS_PLATFORM_OPTIONS_API_LATEST;
+	PlatformOptions.bIsServer = IsRunningDedicatedServer();
+}
+
 UEOSNetworkManager* UEOSNetworkManager::IntEOSNetworkManager()
 {
 	return NewObject<UEOSNetworkManager>();
