@@ -18,7 +18,7 @@ public:
 	* If set to true will be used as server hosted sessions, default false.
 	*/
 	UPROPERTY(Config, EditAnywhere, Category = "Epic Online Services Core | Settings")
-	bool bDedicatedServer = false;
+	bool IsDedicatedServer = false;
 	UPROPERTY(Config, EditAnywhere, Category = "Epic Online Services Core | Settings")
 	FConfigData CoreConfigData;
 };
