@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Engine/DeveloperSettings.h"
+#include "Engine/RuntimeOptionsBase.h"
 
 #include "PluginStruct.h"
 
 #include "EpicOnlineServicesSettings.generated.h"
 
 UCLASS(config = Engine, defaultconfig, meta = (DisplayName = "Epic Online Services Core"))
-class EPICONLINESERVICECORE_API UEpicOnlineServicesSettings : public UDeveloperSettings
+class EPICONLINESERVICECORE_API UEpicOnlineServicesSettings : public URuntimeOptionsBase
 {
 	GENERATED_BODY()
 public:
