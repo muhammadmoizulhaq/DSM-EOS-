@@ -1,1 +1,1 @@
-# DSMS-EOS-
+# Dedicated Server Management (Epic Online Services)
